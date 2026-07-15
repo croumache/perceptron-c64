@@ -26,7 +26,8 @@ def logloss_taylor(x,y,n) :
         result += x[i]*log_taylor(y[i]) + (1-x[i])*log_taylor((1-y[i]))
     return -1/n *result 
 
-
-def hingeloss(x,y) : 
-    return 1 
-
+def hingeloss(x,y,n) :
+    sum = 0
+    for i in range(n) :
+        sum = sum + max(0, 1-x[i]*y[i])
+    return sum
