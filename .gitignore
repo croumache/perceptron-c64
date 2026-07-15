@@ -1,0 +1,23 @@
+# Fichiers auxiliaires LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex.gz(busy)
+
+# Bibliographie
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+
+*/report/main.pdf
+
+# Dossiers temporaires
+*.tmp
+*.bak
