@@ -1,12 +1,26 @@
-def gradient_descent(W0, n, h, df) :
-    W_prev = W0
-    W = W0 + h*df(W0)
-    for i in range(n) :
-        W  = W_prev + h*df(W0)
-        W_prev = W
-    return W
+"""
+- C0 is the initial parameters of the model (w1, w2, b)
+- n number of iteration
+- h step size
+- the gradient of the function 
 
-def dhingeloss(n, X1, X2, Y) : #la dérivée est constante => ne dépend pas de w1, w2 et b.
+return the optimal parameters 
+"""
+def gradient_descent(C0, nmax, h, df) :
+    C_prev = C0
+    C = C0 + h*df(C0)
+    for i in range(nmax) :
+        C  = C_prev + h*df(C0)
+        C_prev = C
+    return C
+
+"""
+derivative of hingeloss
+- C = [w1, w2, b]
+- n is the number of sample
+
+"""
+def dhingeloss(C, n, X1, X2, Y) : #la dérivée est constante => ne dépend pas de w1, w2 et b.
     dw1 = 0
     dw2 = 0
     db = 0
@@ -15,6 +29,10 @@ def dhingeloss(n, X1, X2, Y) : #la dérivée est constante => ne dépend pas de 
         dw2 = dw2 + Y[i]*X2[i]
         db = db + Y[i]
     return [dw1, dw2, db]
+
+"""
+derivative of logloss
+"""
 
 def dlogloss(w1, w2, b, n, X1, X2, Y) :
     dw1 = 0
