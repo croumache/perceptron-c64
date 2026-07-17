@@ -1,3 +1,5 @@
+import numpy as np
+
 """
 - C0 is the initial parameters of the model (w1, w2, b)
 - n number of iteration
@@ -31,7 +33,7 @@ def dhingeloss(C, n, X1, X2, Y) : #The gradient is constant, thus it does not de
         dw1 = dw1 + Y[i]*X1[i]
         dw2 = dw2 + Y[i]*X2[i]
         db = db + Y[i]
-    return [dw1, dw2, db]
+    return np.array([dw1, dw2, db])
 
 """
 derivative of logloss
@@ -51,4 +53,4 @@ def dlogloss(C, n, X1, X2, Y) :
         dw1 = X1[i]*( (Y[i]/(w1*X1[i] + w2*X2[i] + b)) + (1-Y[i]/(w1*X1[i] + w2*X2[i] + b - 1)) )
         dw2 = X2[i]*( (Y[i]/(w1*X1[i] + w2*X2[i] + b)) + (1-Y[i]/(w1*X1[i] + w2*X2[i] + b - 1)) )
         db = (Y[i]/(w1*X1[i] + w2*X2[i] + b)) + (1-Y[i])/(w1*X1[i] + w2*X2[i] + b - 1)
-    return [dw1, dw2, db]
+    return np.array([dw1, dw2, db])
