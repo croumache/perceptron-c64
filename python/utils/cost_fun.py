@@ -2,12 +2,13 @@ import math
 
 N = 20 # nombre de terme dans le raisonnement de Taylor
 
-def logloss(x, y, n) :
-    """
+"""
     x données obtenues et y ce à quoi on s'attend
     x est calculée en amont par la combinaison linéaire
     y ne prend que les valeurs 1 et 0
-    """
+"""
+def logloss(x, y, n) :
+
     result = 0
     for i in range(n) :
         result +=  x[i]*math.log(y[i]) + (1-x[i])*math.log((1-y[i]))
