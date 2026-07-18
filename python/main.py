@@ -12,8 +12,8 @@ X1 = np.array ([-1,-1,1,1]) # set of sample for the first input
 X2 = np.array ([-1,1,-1,1]) # set of sample for the second input
 Y = np.array ([-1,-1,-1,1]) # set of expected result
 
-nmax = 100
-h = 0.01
+nmax = 10000
+h = 0.001
 n_sample = 4
 
 """
@@ -29,9 +29,9 @@ def linear_model (w1, w2, b, x1, x2) :
     returns the optimal parameters
 """
 def training (X1, X2, Y) : 
-    w1 = random.random()*10
-    w2 = random.random()*10
-    b = random.random()*10
+    w1 = random.random()
+    w2 = random.random()
+    b = random.random()
     print("les données aléatoires sont ", w1, w2, b)
 
 
@@ -47,4 +47,4 @@ def perceptron (X1, X2, Y, x1, x2) :
     print("z vaut", z)
     return acti.step_fun(z)
 
-print(perceptron (X1, X2, Y, 1, 0))
+print(perceptron (X1, X2, Y, 0.98, 0.98))
