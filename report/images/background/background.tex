@@ -1,0 +1,19 @@
+\documentclass[tikz, border=10pt]{standalone}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+\begin{tikzpicture}
+\tikzstyle{every node}=[font=\fontsize{25.0pt}{32.5pt}\selectfont]
+\draw [-{Stealth[scale=1.5]}, ] (-17.625,18.375) -- (-13.75,19.375);
+\draw  (-12,20) circle (1.875cm);
+\draw [-{Stealth[scale=1.5]}, ] (-17.75,21.875) -- (-13.75,20.625);
+\node [font=\fontsize{18.2pt}{23.7pt}\selectfont, fill={rgb,255:red,255; green,255; blue,255}, fill opacity=1, text opacity=1, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (-18.125,21.875) {$X_1$};
+\node [font=\fontsize{18.2pt}{23.7pt}\selectfont, fill={rgb,255:red,255; green,255; blue,255}, fill opacity=1, text opacity=1, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (-18.25,18.375) {$X_2$};
+\node [font=\fontsize{27.9pt}{36.2pt}\selectfont, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (-12,20.125) {z};
+\draw [-{Stealth[scale=1.5]}, ] (-12.125,25.875) -- (-12.125,21.875);
+\node [font=\fontsize{25.0pt}{32.5pt}\selectfont, fill={rgb,255:red,255; green,255; blue,255}, fill opacity=1, text opacity=1, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (-12,26.375) {$b$};
+\node [font=\fontsize{25.0pt}{32.5pt}\selectfont, fill={rgb,255:red,255; green,255; blue,255}, fill opacity=1, text opacity=1, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (-16,22) {$w_1$};
+\node [font=\fontsize{25.0pt}{32.5pt}\selectfont, fill={rgb,255:red,255; green,255; blue,255}, fill opacity=1, text opacity=1, inner xsep=0.080cm, inner ysep=0.085cm, rounded corners=0.020cm] at (-16.5,19.25) {$w_2$};
+\end{tikzpicture}
+\end{document}
