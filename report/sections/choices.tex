@@ -4,9 +4,47 @@
 \subsection{Cost function and Activation function}
 \subsubsection{Hinge function}
 - pourquoi hinge function et pas log loss ou autre
+
+The reason we chose the hinge loss as our loss function is because we are trying to learn a logic gate, which is not a statistical output but a hard, binary output.
+
 - expliquer comment ça marche
+
+The hinge loss for a single sample is :
+\begin{equation}
+    L_i = \text{max}(0, 1 - z_i*y_i), z_i = w_1*x_{1,i} + w_2*x_{2,i} + b , \text{with } y_i \in {-1, 1}
+\end{equation}
+
+The loss for a single sample will be zero if $1 - z_i*y_i < 0$ that is if $z_i*y_i > 1$, since $y_i$ is the expected class, if $y_i = 1$ but $z_i < 1$ or if $y_i = -1$ but $z_i > -1$, there will be a loss, because it needs not only to belongs to the right class but also to belong to it withing a margin of 1.\\
+
+The total hinge loss is the sum over all samples :
+\begin{equation}
+    L = \sum_{i = 0}^{n} {L_i}
+\end{equation}
 - graphique 
+TODO\\
 - sous gradient
+The loss function is not differentiable at the point $z_i = 1$ if $y_i = 1$ and is not differentiable at the point $z_i = -1$ if $y_i = -1$, thus the gradient of the hinge loss function does not exists everywhere, thats why we use its subgradient to find a minimum.\\
+We now derive the expression for the subgradients :\\
+
+If $1 - z_i*y_i > 0$, $\text{max}(0, 1 - z_i*y_i) = 1 - z_i*y_i$ and we have :
+
+\begin{equation}
+    \frac{\partial L_i}{\partial w_j} = \frac{\partial (1 - z_i*y_i)}{\partial w_j} = -y_i*\frac{\partial z_i}{\partial w_j} = -y_i*\frac{\partial (w_1*x_{1,i} + w_2*x_{2,i} + b)}{\partial w_j} = -y_i*x_{j, i}, \text{with } j \in {1, 2}
+\end{equation}
+
+\begin{equation}
+    \frac{\partial L_i}{\partial b} = \frac{\partial (1 - z_i*y_i)}{\partial b} = -y_i*\frac{\partial z_i}{\partial b} = -y_i*\frac{\partial (w_1*x_{1,i} + w_2*x_{2,i} + b)}{\partial b} = -y_i\\
+\end{equation}
+
+If $1 - z_i*y_i < 0$, $\text{max}(0, 1 - z_i*y_i) = 0$ and we have :
+
+\begin{equation}
+    \frac{\partial L_i}{\partial w_j} = 0
+\end{equation}
+\begin{equation}
+    \frac{\partial L_i}{\partial b} = 0
+\end{equation}
+
 \subsubsection{Step function}
 - expliquer pourquoi
 - graphique 
