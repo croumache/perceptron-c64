@@ -52,3 +52,4 @@ def perceptron (X1, X2, Y, x1, x2) :
     print("z =", z)
     return act.step_fun(z)
 
+print(perceptron(X1, X2, Y, 0,1))
